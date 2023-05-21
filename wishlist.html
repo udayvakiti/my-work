@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul>
+        {% for order in orders %}
+        <li>{{ order }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="{{ url_for('cart') }}">
+        <label for="product_id">Product ID:</label>
+        <input type="text" name="product_id" id="product_id">
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" value="1" min="1" max="10">
+        <button type="submit">Add to cart</button>
+    </form>
+    <a href="{{ url_for('wishlist') }}">View wishlist</a>
+</body>
+</html>
